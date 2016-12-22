@@ -101,6 +101,8 @@ class Form {
         for (let field in this.originalData) {
             this[field] = '';
         }
+        
+        this.errors.clear();        
     }
 
 
@@ -125,7 +127,6 @@ class Form {
     onSuccess(response) {
         alert(response.data.message); // temporary
 
-        this.errors.clear();
         this.reset();
     }
 
