@@ -9,6 +9,8 @@ class Errors {
 
     /**
      * Determine if an errors exists for the given field.
+     *
+     * @param {string} field
      */
     has(field) {
         return this.errors.hasOwnProperty(field);
@@ -25,6 +27,8 @@ class Errors {
 
     /**
      * Retrieve the error message for a field.
+     *
+     * @param {string} field
      */
     get(field) {
         if (this.errors[field]) {
@@ -103,8 +107,8 @@ class Form {
     /**
      * Submit the form.
      * 
-     * @param  {string} requestType 
-     * @param  {string} url         
+     * @param {string} requestType 
+     * @param {string} url         
      */
     submit(requestType, url) {
         axios[requestType](url, this.data())
