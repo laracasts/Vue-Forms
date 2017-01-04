@@ -143,7 +143,7 @@ class Form {
      * @param {string} url
      */
     delete(url) {
-        return this.submit('DELETE', url);
+        return this.submit('delete', url);
     }
 
 
