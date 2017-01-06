@@ -105,6 +105,15 @@ class Form {
 
         this.errors.clear();
     }
+    
+    /**
+     * Send a GET request to the given URL.
+     * .
+     * @param {string} url
+     */
+    get(url) {
+        return this.submit('get', url);
+    }
 
 
     /**
