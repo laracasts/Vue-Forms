@@ -67,7 +67,7 @@ class Errors {
 class Form {
     /**
      * Create a new Form instance.
-     * 
+     *
      * @param {object} data
      */
     constructor(data) {
@@ -149,11 +149,11 @@ class Form {
 
     /**
      * Submit the form.
-     * 
-     * @param {string} requestType 
-     * @param {string} url         
+     *
+     * @param {string} requestType
+     * @param {string} url
      */
-    submit(requestType, url) { 
+    submit(requestType, url) {
         return new Promise((resolve, reject) => {
             axios[requestType](url, this.data())
                 .then(response => {
@@ -172,7 +172,7 @@ class Form {
 
     /**
      * Handle a successful form submission.
-     * 
+     *
      * @param {object} data
      */
     onSuccess(data) {
@@ -184,7 +184,7 @@ class Form {
 
     /**
      * Handle a failed form submission.
-     * 
+     *
      * @param {object} errors
      */
     onFail(errors) {
@@ -205,7 +205,7 @@ new Vue({
 
     methods: {
         onSubmit() {
-            this.form.submit('/projects')
+            this.form.post('/projects')
                 .then(response => alert('Wahoo!'));
         }
     }
