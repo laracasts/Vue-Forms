@@ -98,9 +98,9 @@ class Form {
     /**
      * Reset the form fields.
      */
-    reset() {
+    reset(defaults = {}) {
         for (let field in this.originalData) {
-            this[field] = '';
+            this[field] = defaults.hasOwnProperty(field) ? defaults[field] : '';
         }
 
         this.errors.clear();
