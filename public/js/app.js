@@ -85,10 +85,10 @@ class Form {
      * Fetch all relevant data for the form.
      */
     data() {
-        let data = {};
+        let data = new FormData();
 
         for (let property in this.originalData) {
-            data[property] = this[property];
+            data.append(property, this[property]);
         }
 
         return data;
