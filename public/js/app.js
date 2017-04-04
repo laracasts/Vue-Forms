@@ -79,6 +79,17 @@ class Form {
 
         this.errors = new Errors();
     }
+    
+    /**
+     * Load a model for default data
+     *
+     * @param {object} model
+     */
+    load(model) {
+        for (let field in model) {
+            this[field] = model[field];
+        }
+    }
 
 
     /**
