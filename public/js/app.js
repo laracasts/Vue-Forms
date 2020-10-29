@@ -85,10 +85,24 @@ class Form {
      * Fetch all relevant data for the form.
      */
     data() {
-        let data = {};
+
+        let data = new FormData();
 
         for (let property in this.originalData) {
-            data[property] = this[property];
+
+            if (Array.isArray(this[property])) {
+                var tmp_array = this[property];
+                for (var i = 0; i < tmp_array.length; i++) {
+                    // use append instead of set, otherwise
+                    // field[] would be overwritten
+                    // https://developer.mozilla.org/en-US/docs/Web/API/FormData/append
+                    data.append(property + '[]', tmp_array[i]);
+                }
+                continue;
+            }
+
+            // https://developer.mozilla.org/en-US/docs/Web/API/FormData/set
+            data.set(property, this[property]);
         }
 
         return data;
