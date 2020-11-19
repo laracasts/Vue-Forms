@@ -206,7 +206,8 @@ new Vue({
     methods: {
         onSubmit() {
             this.form.post('/projects')
-                .then(response => alert('Wahoo!'));
+                .then(data => console.log(data))
+                .catch(errors => console.log(errors));
         }
     }
 });
